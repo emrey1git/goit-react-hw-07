@@ -1,33 +1,23 @@
-// src/components/ContactForm/ContactForm.jsx
-import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { nanoid } from "nanoid";
+import { useDispatch } from "react-redux";
+import { addContact } from "../../redux/contactsSlice";
 import styles from "./ContactForm.module.css";
 
-export default function ContactForm({ onAddContact }) {
+export default function ContactForm() {
+  const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       name: "",
       number: "",
     },
     validationSchema: Yup.object({
-      name: Yup.string()
-        .min(3, "En az 3 karakter olmalı")
-        .max(50, "En fazla 50 karakter olabilir")
-        .required("İsim zorunludur"),
-      number: Yup.string()
-        .min(3, "En az 3 karakter olmalı")
-        .max(50, "En fazla 50 karakter olabilir")
-        .required("Numara zorunludur"),
+      name: Yup.string().min(3).max(50).required("İsim zorunludur"),
+      number: Yup.string().min(3).max(50).required("Numara zorunludur"),
     }),
     onSubmit: (values, { resetForm }) => {
-      const newContact = {
-        id: nanoid(),
-        name: values.name,
-        number: values.number,
-      };
-      onAddContact(newContact);
+      dispatch(addContact(values));
       resetForm();
     },
   });
