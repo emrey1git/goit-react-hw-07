@@ -1,52 +1,70 @@
-
+/* contactCss */
 
 .contactForm {
-  margin-bottom: 20px;
-  padding: 20px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
+  margin-bottom: 24px;
+  padding: 28px 30px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #e0f0ff 0%, #f9fbff 100%);
+  box-shadow: 0 4px 16px rgba(0, 123, 255, 0.15);
+  border: none;
 }
 
 .formGroup {
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
 .formLabel {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #1e2a48;
+  letter-spacing: 0.02em;
 }
 
 .formInput {
-  width: 98%;
-  padding: 8px 12px;
-  font-size: 16px;
-  border: 1px solid #aaa;
-  border-radius: 4px;
+  width: 100%;
+  padding: 14px 16px; /* Butonun padding-top ve bottom'u 14px olduğundan inputta da aynı yaptım */
+  font-size: 18px;    /* Butonun font-size 18px, input da aynısını kullanalım */
+  border: 2px solid #cbd5e1;
+  border-radius: 12px; /* Butonla aynı border-radius */
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: inset 0 1px 3px rgb(0 0 0 / 0.1);
+  box-sizing: border-box; /* genişlik kontrolü için önemli */
 }
 
 .formInput:focus {
   border-color: #007bff;
   outline: none;
-}
-
-.formError {
-  color: red;
-  font-size: 14px;
-  margin-top: 4px;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
 }
 
 .submitButton {
-  padding: 10px 15px;
-  font-size: 16px;
+  display: block;
+  width: 100%;
+  padding: 14px 0;
+  font-size: 18px;
+  font-weight: 700;
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 12px;
   cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0, 123, 255, 0.35);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
 }
 
+
+.formError {
+  color: #e03e3e;
+  font-size: 14px;
+  margin-top: 6px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
 .submitButton:hover {
   background-color: #0056b3;
+  box-shadow: 0 8px 18px rgba(0, 86, 179, 0.6);
 }

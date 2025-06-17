@@ -1,17 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
-import { deleteContact, selectContacts } from "../../redux/contactsSlice";
-import { selectFilter } from "../../redux/filtersSlice";  // burası değişti
+import { selectFilteredContacts } from "../../redux/contactsSlice";
+import { deleteContact } from "../../redux/contactsOps";
+
 import styles from "./ContactList.module.css";
 import { FaUser, FaPhone, FaTrash } from "react-icons/fa";
 
 export default function ContactList() {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
-  const filter = useSelector(selectFilter);  // burası da değişti
-
-  const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
+  const filteredContacts = useSelector(selectFilteredContacts); 
 
   return (
     <ul className={styles.list}>

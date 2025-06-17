@@ -1,23 +1,27 @@
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import ContactForm from "./components/ContactForm/ContactForm";
 import ContactList from "./components/ContactList/ContactList";
-import SearchBox from "./components/SearchBox/SearchBox";
-
-import { selectContacts, addContact, deleteContact } from "./redux/contactsSlice";
+import SearchBox from "./components/SearchBox/SearchBox"; 
+import { selectContacts } from "./redux/contactsSlice";
+import { addContact, deleteContact, fetchContacts } from "./redux/contactsOps";
 import { selectFilter, setFilter } from "./redux/filtersSlice"; 
+import "./app.css"; 
 
 export default function App() {
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
- 
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
   const handleAddContact = (contact) => {
     dispatch(addContact(contact));
   };
 
-  
   const handleDeleteContact = (id) => {
     dispatch(deleteContact(id));
   };
