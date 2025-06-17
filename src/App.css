@@ -11,6 +11,43 @@ body {
   justify-content: center;
   align-items: flex-start;
 }
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  width: 20%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(30px);
+  transition: background 0.3s ease;
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+body::before {
+  left: 0;
+  background: radial-gradient(circle at center, rgba(0, 123, 255, 0.8), transparent 60%);
+  transform-origin: left center;
+}
+
+body::after {
+  right: 0;
+  background: radial-gradient(circle at center, rgba(0, 200, 255, 0.8), transparent 60%);
+  transform-origin: right center;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.35);
+  }
+}
+
 
 .container {
   max-width: 480px;
