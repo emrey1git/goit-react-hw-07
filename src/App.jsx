@@ -7,7 +7,7 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import { selectContacts } from "./redux/contactsSlice";
 import { addContact, deleteContact, fetchContacts } from "./redux/contactsOps";
 import { selectFilter, setFilter } from "./redux/filtersSlice"; 
-import "./app.css"; 
+import "./App.css"; 
 
 export default function App() {
   const contacts = useSelector(selectContacts);
