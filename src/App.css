@@ -1,76 +1,216 @@
-/* app.css - Düzenlenmiş ve modernleştirilmiş */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html, body {
+  overflow-x: hidden;
+}
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
-  color: #222;
   margin: 0;
-  padding: 20px;
+  padding: 0;
   min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f172a;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-}
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  width: 20%;
-  height: 100vh;
-  pointer-events: none;
-  z-index: -1;
-  filter: blur(30px);
-  transition: background 0.3s ease;
-  animation: pulseGlow 6s ease-in-out infinite;
+  align-items: center;
+  position: relative;
+  color: #fff;
+  overflow: hidden;
 }
 
 body::before {
-  left: 0;
-  background: radial-gradient(circle at center, rgba(0, 123, 255, 0.8), transparent 60%);
-  transform-origin: left center;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(90deg, rgba(0,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(rgba(0,255,255,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridMove 30s linear infinite;
+  z-index: -3;
+}
+
+@keyframes gridMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1000px 1000px;
+  }
 }
 
 body::after {
-  right: 0;
-  background: radial-gradient(circle at center, rgba(0, 200, 255, 0.8), transparent 60%);
-  transform-origin: right center;
+  content: "";
+  position: absolute;
+  top: -200px;
+  left: -200px;
+  width: 200vw;
+  height: 200vh;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.2) 0%, transparent 60%);
+  filter: blur(80px);
+  animation: pulse 6s ease-in-out infinite alternate;
+  z-index: -2;
 }
 
-@keyframes pulseGlow {
-  0%, 100% {
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.4);
     opacity: 0.7;
-    transform: scale(1.2);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.35);
   }
 }
-
 
 .container {
-  max-width: 480px;
-  width: 100%;
-  margin: 40px auto;
-  background-color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
   padding: 40px 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-  transition: box-shadow 0.3s ease;
+  max-width: 500px;
+  width: 90%;
+  margin: 60px auto;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .container:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 35px;
-  color: #1a2a40;
-  font-weight: 700;
-  font-size: 2.5rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  font-size: 2.6rem;
+  margin-bottom: 30px;
+  color: #38bdf8;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
   user-select: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #7eeaf9;
+  letter-spacing: 0.04em;
+  user-select: none;
+  text-shadow: 0 0 5px rgba(62, 255, 255, 0.7);
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+  padding: 14px 18px;
+  font-size: 16px;
+  border-radius: 14px;
+  border: 2px solid rgba(0, 255, 255, 0.5);
+  background-color: rgba(20, 30, 50, 0.85);
+  color: #a9f0ff;
+  box-shadow: inset 0 1px 5px rgba(0, 255, 255, 0.2);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: inherit;
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.9);
+}
+
+input::placeholder {
+  color: #70e1ffaa;
+  font-style: italic;
+}
+
+input:focus {
+  outline: none;
+  border-color: #00ffff;
+  box-shadow: 0 0 12px 3px #00ffffcc;
+  background-color: rgba(10, 20, 40, 0.95);
+}
+
+button {
+  padding: 14px 20px;
+  font-size: 17px;
+  font-weight: 700;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(45deg, #00ffff, #0ff9ff);
+  color: #003333;
+  cursor: pointer;
+  box-shadow: 0 0 18px #00ffffcc;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  text-shadow: 0 0 6px #00eaff;
+}
+
+button:hover,
+button:focus {
+  background: linear-gradient(45deg, #0ff9ff, #00e6e6);
+  box-shadow: 0 0 28px #00ffffee;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 20px;
+  background: rgba(20, 35, 60, 0.8);
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.3);
+  border: 1.5px solid rgba(0, 255, 255, 0.4);
+  max-height: 320px;
+  overflow-y: auto;
+  user-select: none;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 22px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.15);
+  color: #a4f5ff;
+  font-weight: 600;
+  font-size: 17px;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+  cursor: default;
+  transition: background-color 0.3s ease;
+}
+
+li:hover {
+  background-color: rgba(0, 255, 255, 0.12);
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+.delete-btn {
+  background-color: #00e0ff;
+  border: none;
+  border-radius: 14px;
+  padding: 8px 14px;
+  color: #003333;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 12px #00e0ffcc;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.delete-btn:hover,
+.delete-btn:focus {
+  background-color: #00b8cc;
+  box-shadow: 0 0 20px #00b8ccdd;
+  outline: none;
 }

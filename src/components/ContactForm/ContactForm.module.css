@@ -1,16 +1,15 @@
-/* contactCss */
-
 .contactForm {
   margin-bottom: 24px;
   padding: 28px 30px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #e0f0ff 0%, #f9fbff 100%);
-  box-shadow: 0 4px 16px rgba(0, 123, 255, 0.15);
-  border: none;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .formGroup {
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .formLabel {
@@ -18,26 +17,29 @@
   margin-bottom: 8px;
   font-weight: 600;
   font-size: 16px;
-  color: #1e2a48;
-  letter-spacing: 0.02em;
+  color: #00f5ff;
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 6px rgba(0, 245, 255, 0.4);
 }
 
 .formInput {
   width: 100%;
-  padding: 14px 16px; 
-  font-size: 18px;    
-  border: 2px solid #cbd5e1;
+  padding: 14px 16px;
+  font-size: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
-  background-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: inset 0 1px 3px rgb(0 0 0 / 0.1);
-  box-sizing: border-box;
 }
 
 .formInput:focus {
-  border-color: #007bff;
+  border-color: #00f5ff;
   outline: none;
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.6);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .submitButton {
@@ -46,25 +48,25 @@
   padding: 14px 0;
   font-size: 18px;
   font-weight: 700;
-  background-color: #007bff;
-  color: white;
+  background-color: #2e4c21;
+  color: #fff;
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 6px 14px rgba(0, 123, 255, 0.35);
+  box-shadow: 0 6px 14px rgba(33, 66, 52, 0.35);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-sizing: border-box;
 }
 
+.submitButton:hover {
+  background-color: #63ad8d;
+  box-shadow: 0 8px 18px rgba(69, 155, 124, 0.5);
+}
 
 .formError {
-  color: #e03e3e;
+  color: #ff5c5c;
   font-size: 14px;
   margin-top: 6px;
   font-weight: 600;
   letter-spacing: 0.02em;
-}
-.submitButton:hover {
-  background-color: #0056b3;
-  box-shadow: 0 8px 18px rgba(0, 86, 179, 0.6);
+  text-shadow: 0 0 4px rgba(255, 92, 92, 0.3);
 }

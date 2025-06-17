@@ -1,4 +1,4 @@
-/* contactlist */
+contactlist
 .list {
   list-style: none;
   padding: 0;
@@ -35,7 +35,7 @@
 }
 
 .icon {
-  color: #7a8caf;
+  color: #656164;
   min-width: 20px;
   font-size: 18px;
 }
